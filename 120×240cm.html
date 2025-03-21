@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>የፎቶ መፅሃፍ</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+            background-color: #f0f0f0;
+            overflow: hidden;
+        }
+
+        .book-container {
+            perspective: 1500px;
+            width: 600px;
+            height: 600px;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .book {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transform-style: preserve-3d;
+        }
+
+        .page {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border: 1px solid #ccc;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+            background: white;
+            transform-origin: left center;
+            transition: transform 0.5s;
+        }
+
+        .page img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+
+        .side-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 50px;
+            height: 100px;
+            background: rgba(0, 0, 0, 0.3);
+            color: white;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 20px;
+        }
+
+        .left-button {
+            left: -60px;
+        }
+
+        .right-button {
+            right: -60px;
+        }
+
+        .bottom-controls {
+            margin-top: 20px;
+        }
+
+        .bottom-controls button {
+            padding: 10px 20px;
+            margin: 0 10px;
+            cursor: pointer;
+            font-size: 16px;
+            border: none;
+            background: #444;
+            color: white;
+            border-radius: 5px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="book-container" id="bookContainer">
+        <div class="book" id="book">
+            <div class="page" style="z-index: 9;"><img src="20x120cm/2.jpg" alt="ፎቶ 1"></div>
+            <div class="page" style="z-index: 8;"><img src="20x120cm/3.jpg" alt="ፎቶ 2"></div>
+            <div class="page" style="z-index: 7;"><img src="20x120cm/4.jpg" alt="ፎቶ 3"></div>
+            <div class="page" style="z-index: 6;"><img src="20x120cm/5.jpg" alt="ፎቶ 4"></div>
+            <div class="page" style="z-index: 5;"><img src="20x120cm/6.jpg" alt="ፎቶ 5"></div>
+            <div class="page" style="z-index: 4;"><img src="20x120cm/7.jpg" alt="ፎቶ 6"></div>
+            <div class="page" style="z-index: 3;"><img src="20x120cm/8.jpg" alt="ፎቶ 7"></div>
+            <div class="page" style="z-index: 2;"><img src="20x120cm/9.jpg" alt="ፎቶ 8"></div>
+            <div class="page" style="z-index: 1;"><img src="20x120cm/10.jpg" alt= "ፎቶ 9"></div>
+            <div class="page" style="z-index: 1;"><img src=" 20x120cm/11.jpg" alt= "ፎቶ 10"></div>
+            <div class="page" style="z-index: 1;"><img src="20x120cm/12.jpg " alt= "ፎቶ 11"></div>
+            <div class="page" style="z-index: 1;"><img src=" 20x120cm/13.jpg" alt= "ፎቶ 12"></div>
+            <div class="page" style="z-index: 1;"><img src="20x120cm/14.jpg" alt= "ፎቶ 13"></div>
+            <div class="page" style="z-index: 1;"><img src="20x120cm/15.jpg" alt= "ፎቶ 14"></div>
+            <div class="page" style="z-index: 1;"><img src="20x120cm/16.jpg" alt= "ፎቶ 15"></div>
+            <div class="page" style="z-index: 1;"><img src="20x120cm/20x120.jpg" alt= "ፎቶ 16"></div>
+            
+        </div>
+
+        <button class="side-button left-button" onclick="flipPrevOne()">&#10094;</button>
+        <button class="side-button right-button" onclick="flipNextOne()">&#10095;</button>
+    </div>
+
+    <div class="bottom-controls">
+        <button onclick="flipPrevOne()">PAEV</button>
+        <button onclick="flipNextOne()">NEXT</button>
+    </div>
+
+    <script>
+        let currentPage = 0;
+        const pages = document.querySelectorAll('.page');
+        function flipNextOne() {
+            if (currentPage < pages.length - 1) {
+                pages[currentPage].style.transform = "rotateY(-180deg)";
+                pages[currentPage].style.zIndex = 0;
+                currentPage++;
+            }
+        }
+
+        function flipPrevOne() {
+            if (currentPage > 0) {
+                currentPage--;
+                pages[currentPage].style.transform = "rotateY(0deg)";
+                pages[currentPage].style.zIndex = pages.length - currentPage;
+            }
+        }
+    </script>
+</body>
+</html>

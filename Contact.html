@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arvis Tiles</title>
+    <style>
+        /* Add your CSS styling here */
+        body { font-family: Arial, sans-serif; max-width: 1200px; margin: 0 auto; }
+        .header { text-align: center; padding: 2rem; }
+        .nav { display: flex; justify-content: space-between; margin: 1rem 0; }
+        .contact-columns { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+        .address-section { margin: 2rem 0; }
+        footer { text-align: center; margin-top: 3rem; }
+    </style>
+</head>
+<body>
+    <style>
+    /* Base Styles */
+    body {
+        font-family: 'Arial', sans-serif;
+        line-height: 1.6;
+        color: #6e2626;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+        background: #e4d6d6;
+    }
+
+    /* Header Section */
+    .header {
+        text-align: center;
+        padding: 3rem 0;
+        background: #328ce6;
+        color: white;
+        margin-bottom: 2rem;
+        border-radius: 0 0 15px 15px;
+    }
+
+    .header h1 {
+        font-size: 2.8rem;
+        letter-spacing: 3px;
+        margin-bottom: 0.5rem;
+        text-transform: uppercase;
+    }
+
+    .header p {
+        font-size: 1.2rem;
+        color: #b1c3c7;
+    }
+
+    /* Navigation */
+    .nav {
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+        margin-top: 1.5rem;
+    }
+
+    .nav a {
+        color: #bdc3c7;
+        text-decoration: none;
+        padding: 0.5rem 1.5rem;
+        border: 2px solid #bdc3c7;
+        border-radius: 25px;
+        transition: all 0.3s ease;
+    }
+
+    .nav a:hover {
+        background: #d7e8f3;
+        border-color: #b8ccda;
+        color: white;
+    }
+
+    /* Contact Section */
+    .contact-columns {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 3rem;
+        margin: 3rem 0;
+        padding: 2rem;
+        background: white;
+        border-radius: 15px;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+
+    /* Form Styling */
+    form {
+        display: flex;
+        flex-direction: column;
+        gap: 1.2rem;
+    }
+
+    input, textarea {
+        padding: 12px;
+        border: 2px solid #682a2a;
+        border-radius: 8px;
+        font-size: 1rem;
+        transition: border-color 0.3s ease;
+    }
+
+    input:focus, textarea:focus {
+        border-color: #1b2329;
+        outline: none;
+    }
+
+    button[type="submit"] {
+        background: #e67e22;
+        color: white;
+        padding: 15px 30px;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        font-weight: bold;
+        text-transform: uppercase;
+        transition: background 0.3s ease;
+    }
+
+    button[type="submit"]:hover {
+        background: #e7c7b1;
+    }
+
+    /* Locations List */
+    .map ul {
+        list-style-type: none;
+        padding: 0;
+    }
+
+    .map li {
+        padding: 10px 0;
+        border-bottom: 1px solid #eee;
+        font-weight: 500;
+    }
+
+    /* Address Section */
+    .address-section {
+        background: white;
+        padding: 2rem;
+        border-radius: 15px;
+        margin: 2rem 0;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    }
+
+    .address-section h3 {
+        color: #2c3e50;
+        border-left: 4px solid #3498db;
+        padding-left: 1rem;
+        margin: 1.5rem 0;
+    }
+
+    /* Footer */
+    footer {
+        background: #3186db;
+        color: white;
+        padding: 1.5rem;
+        margin-top: 4rem;
+        border-radius: 15px 15px 0 0;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+        .contact-columns {
+            grid-template-columns: 1fr;
+        }
+        
+        .header h1 {
+            font-size: 2rem;
+        }
+    }
+        /* የካርታ ኮንቴይነር ዘዴ */
+        .map-container {
+            max-width: 1000px;
+            height: 500px;
+            margin: 20px auto;
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+        }
+
+        /* �ልፋይም ስላይስ */
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        /* ለሞባይል ተስማሚ */
+        @media (max-width: 768px) {
+            .map-container {
+                height: 300px;
+                margin: 10px;
+            }
+        }
+</style>
+    <header class="header">
+        <img src="logo.jpg" class="logo"> 
+        <div class="nav">
+        </div>
+    </header>
+    <main>
+
+        <section class="contact">
+            <div class="contact-columns">
+                <div>
+                    <h3>CONTACT US</h3>
+                    <form>
+                        <input type="text" placeholder="Name">
+                        <input type="text" placeholder="Subject">
+                        <input type="email" placeholder="Email">
+                        <textarea placeholder="Message"></textarea>
+                        <div>
+                        
+                        </div>
+                        <button type="submit">SUBMIT</button>
+                    </form>
+                </div>
+                <body>
+                    <div class="map-container">
+                        <iframe 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3940.235834609804!2d38.76307327498823!3d9.019983382496238!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x164b85d9f72f40c7%3A0x1d6e1e5d1a8e3b0f!2sATM%20%26%20Branch%20Services!5e0!3m2!1sen!2set!4v1717231275534!5m2!1sen!2set" 
+                            allowfullscreen="" 
+                            loading="lazy" 
+                            referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                    </div>
+                </body>          
+        </section>
+
+        <section class="address-section">
+            <h3> General Manager</h3>
+              HIWOT TESSEMA 
+                <section class="address-section">
+                <h3>LOCATIONS</h3>
+                Signal, Wubet Tower,
+                1st Floor #F01
+            <h3>Phone No:</h3>
+            <p> +251 911 52 89 73<br>
+                +251 977 07 07 07 <br>
+
+            <!-- Add other contact sections similarly -->
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2025 Arvis Tiles</p>
+    </footer>
+</body>
+</html>
